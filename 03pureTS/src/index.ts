@@ -13,7 +13,7 @@
  
 class User {
 
-   private _courseCount = 1;
+   protected _courseCount = 1;
 
    private readonly city : string = "Durg";
 
@@ -42,6 +42,13 @@ class User {
        }
        this._courseCount = courseNum;
     }
+}
+
+class SubUser extends User {
+        isFamily : boolean = true;
+        changeCouserCount(){
+            this._courseCount = 4;
+        }
 }
 
 const vikas = new User("vikas@gmail.com" ,"vikas","2q4")
