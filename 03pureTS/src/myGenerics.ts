@@ -1,5 +1,5 @@
 const score :Array<number> = [1,2,3,4,5];
-const fruits :  Array<string> = ["apple" , "pineapple" , "banana" , "guava" , "grapes"];
+const fruits : Array<string> = ["apple" , "pineapple" , "banana" , "guava" , "grapes"];
 
 
 function identityOne(val : boolean | number)  : boolean | number {
