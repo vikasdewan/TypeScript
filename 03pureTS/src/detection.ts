@@ -50,8 +50,8 @@ function AdminOrNot(account : Admin | User){
 new Date()  // Date is also a data type same like array, string ,number etc.
 
 function logValue(x: Date | string) {
-  if (x instanceof Date) {  // instanceof keyword work  
-                            //mostly when something is constructed 
+  if (x instanceof Date) {  // instanceof is keyword which   
+                            //works mostly when something is constructed 
                             // using "new" keyword.
     console.log(x.toUTCString());
   } else {
@@ -66,7 +66,7 @@ function logValue(x: Date | string) {
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 
-function isFish(pet: Fish | Bird) : pet is Fish {
+function isFish(pet: Fish | Bird) : pet is Fish{
   return (pet as Fish).swim !== undefined;
 }
 
@@ -77,5 +77,45 @@ function getFood(pet : Fish | Bird){
     }else{
         pet
         return "bird Food"
+    }
+}
+
+
+interface Circle {
+   kind : "circle",
+   radius : number
+}
+
+interface Square {
+  kind : "square"
+  side : number
+}
+
+interface Rectangle{
+  kind : "rectangle",
+  length : number,
+  width : number
+}
+
+type Shape = Circle | Square | Rectangle;
+
+function getTrueShape(shape : Shape){
+  if(shape.kind === "circle"){
+    return Math.PI*shape.radius**2;
+  }
+   //return shape.side * shape.side;
+}
+
+function getArea(shape : Shape){
+    switch(shape.kind){
+      case "circle": 
+          return Math.PI*shape.radius**2;
+      case "square" : 
+          return shape.side * shape.side;
+      case "rectangle" : 
+          return shape.length * shape.width;    
+      default : 
+          const _defaultforshape : never = shape
+          return _defaultforshape     
     }
 }
